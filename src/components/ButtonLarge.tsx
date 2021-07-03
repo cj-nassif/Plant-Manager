@@ -2,47 +2,40 @@ import React from 'react';
 
 import {
     TouchableOpacity,
-    TouchableOpacityProps,
+    StyleSheet,
     Text,
-    StyleSheet
+    TouchableOpacityProps
 } from 'react-native';
-import { Entypo } from '@expo/vector-icons'
-
 import colors from '../styles/colors';
+import fonts from '../styles/fonts';
 
 type Props = TouchableOpacityProps & {
     title: string;
 }
 
-export function Button({ title, ...rest }: Props) {
+export function ButtonLarge({ title, ...rest }: Props) {
     return (
         <TouchableOpacity
-            style={styles.button}
-            activeOpacity={0.7}
+            style={styles.container}
             {...rest}
         >
-
-            <Entypo
-                name='chevron-thin-right'
-                size={20}
-                color='#fff'
-            />
-
+            <Text style={styles.text}>{title}</Text>
         </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
-
-
-    button: {
+    container: {
         backgroundColor: colors.green,
+        height: 56,
+        borderRadius: 16,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 16,
-        marginBottom: 10,
-        height: 56,
-        width: 56,
     },
+    text: {
+        fontSize: 16,
+        color: colors.white,
+        fontFamily: fonts.heading
+    }
 
 })
